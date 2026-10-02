@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f6">
+<title>For My Kyuutu ♡</title>
+
+<style>
+:root {
+  --pink: #f3a6c5;
+  --deep: #8c4268;
+  --cream: #fff7fa;
+  --ink: #593548;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg,#fff0f6,#fff9fc,#fce6f0);
+  color: var(--ink);
+  text-align: center;
+  overflow-x: hidden;
+}
+section { padding: 65px 20px; }
+h1 { font-size: clamp(2.5rem,10vw,4rem); margin: 15px 0; }
+h2 { font-size: 2rem; }
+p { line-height: 1.8; }
+.eyebrow { letter-spacing: 3px; font-size: .72rem; }
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero:before {
+  content: "♡";
+  position: absolute;
+  font-size: 19rem;
+  color: #f7cade;
+  opacity: .28;
+  top: 10%;
+  left: -60px;
+  transform: rotate(-20deg);
+}
+.hero > * { position: relative; }
+.hero-icon { font-size: 4rem; animation: bob 3s infinite ease-in-out; }
+.subtitle { max-width: 330px; }
+button {
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 30px;
+  background: var(--deep);
+  color: white;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 7px 20px #8c426826;
+  transition: transform .2s;
+}
+button:active { transform: scale(.96); }
+button.secondary { background: #f7d7e5; color: #713c57; }
+button:focus-visible { outline: 3px solid #6c294c; outline-offset: 4px; }
+.small-note { font-size: .85rem; opacity: .75; }
+.card {
+  max-width: 500px;
+  margin: 22px auto;
+  padding: 26px;
+  border: 1px solid #f2c5d8;
+  border-radius: 24px;
+  background: #ffffffb8;
+  box-shadow: 0 12px 40px #a94c7010;
+}
+.hidden { display: none !important; }
+.reveal { animation: appear .7s ease both; }
+#letter {
+  text-align: left;
+  white-space: pre-line;
+  line-height: 2;
+}
+.gallery {
+  max-width: 720px;
+  margin: 25px auto;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 14px;
+}
+.photo {
+  background: white;
+  padding: 9px 9px 17px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px #8c42681c;
+  transform: rotate(-2deg);
+}
+.photo:nth-child(even) { transform: rotate(2deg); }
+.photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #f8dce8;
+}
+.photo p { margin: 10px 0 0; font-size: .9rem; }
+.cake { font-size: 6rem; margin: 15px; }
+#flame { display: inline-block; }
+#finalWish { line-height: 2; }
+footer { padding: 35px 15px; font-size: .9rem; }
+.heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: 10;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+}
+@keyframes bob {
+  50% { transform: translateY(-10px) rotate(4deg); }
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<section class="hero" id="home">
+  <div class="hero-icon">💌</div>
+  <p class="eyebrow">A LITTLE SOMETHING JUST FOR YOU</p>
+  <h1>For my<br>Kyuutu ♡</h1>
+  <p class="subtitle">
+    Some surprises are better opened slowly.
+    This one was made especially for you, Anuska.
+  </p>
+  <button onclick="openSurprise()">Open your surprise 💗</button>
+  <p class="small-note">Made with love, just for you.</p>
+</section>
+
+<section id="welcome">
+  <p class="eyebrow">TODAY IS YOUR DAY</p>
+  <h2>Happy Birthday, Anuska! 🎂</h2>
+  <p>
+    To the girl who makes ordinary moments feel a little more special.
+    Today, this tiny corner of the internet belongs to you.
+  </p>
+  <button class="secondary" onclick="showLetter()">A little letter for you 💌</button>
+  <div id="letterCard" class="card hidden">
+    <h2>Dear Kyuutu ♡</h2>
+    <p id="letter"></p>
+    <p style="text-align:right">With lots of love,<br>Biraja ♡</p>
+  </div>
+</section>
+
+<section id="memories">
+  <p class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</p>
+  <h2>Our little memory book 📸</h2>
+  <p>Every picture holds a little story.</p>
+  <div class="gallery">
+    <div class="photo">
+      <img src="photo1.jpg" alt="Our favourite memory one">
+      <p>One of my favourite moments ♡</p>
+    </div>
+    <div class="photo">
+      <img src="photo2.jpg" alt="Our favourite memory two">
+      <p>A memory worth keeping 🌸</p>
+    </div>
+    <div class="photo">
+      <img src="photo3.jpg" alt="Our favourite memory three">
+      <p>Just us being us 💗</p>
+    </div>
+    <div class="photo">
+      <img src="photo4.jpg" alt="Our favourite memory four">
+      <p>More memories to come ✨</p>
+    </div>
+  </div>
+  <p class="small-note">Add your own photos to make this section yours.</p>
+</section>
+
+<section id="cakeSection">
+  <p class="eyebrow">MAKE A LITTLE WISH</p>
+  <h2>A cake just for you 🎂</h2>
+  <div class="cake" aria-label="Birthday cake">
+    🎂<span id="flame">🕯️</span>
+  </div>
+  <p id="cakeMessage">Ready for your birthday surprise?</p>
+  <button onclick="blowCandle()">Make a wish ✨</button>
+</section>
+
+<section>
+  <div class="card">
+    <p class="eyebrow">ONE LAST LITTLE THING</p>
+    <h2>Before you go… ♡</h2>
+    <p>
+      I hope this new year of your life brings you peaceful days,
+      happy surprises, lovely memories, and so many reasons to smile.
+    </p>
+    <button onclick="showFinal()">Open your final surprise 💝</button>
+    <div id="finalWish" class="hidden reveal">
+      <h2>You're so special, Kyuutu! 🌷</h2>
+      <p>
+        Happy Birthday, Anuska. Never forget how much joy you bring
+        into the lives of the people who care about you.
+      </p>
+      <p>Here's to more smiles, more memories, and more beautiful days. ♡</p>
+      <div style="font-size:2rem">🌸 💗 🌸</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>A little music? 🎶</h2>
+  <p>Tap play if you'd like a soft birthday soundtrack.</p>
+  <audio id="music" controls loop preload="none">
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+  <p class="small-note">Music starts only when you press play.</p>
+</section>
+
+<footer>
+  <div style="font-size:1.5rem">♡</div>
+  Made for Anuska, with love from Biraja.<br>
+  <span class="small-note">5 October 2026 · Always keep smiling 🌷</span>
+</footer>
+
+<script>
+const message = `Happy Birthday, my Kyuutu! ♡
+
+I made this little website just for you because I wanted your day to feel a little more special.
+
+I hope you keep smiling, keep dreaming, and keep being the wonderful person you are.
+
+Thank you for being part of my life and for all the little moments that mean more than words can say.
+
+I cannot promise that every day will be perfect, but I hope your birthday is filled with warmth, happiness, and lovely memories.
+
+Today is your day, Anuska. Enjoy every little bit of it.
+
+Happy Birthday once again, Kyuutu! 🌸💗`;
+
+function openSurprise() {
+  document.getElementById("welcome").scrollIntoView({behavior:"smooth"});
+  hearts(18);
+}
+function showLetter() {
+  const card = document.getElementById("letterCard");
+  card.classList.remove("hidden");
+  document.getElementById("letter").textContent = message;
+  card.classList.add("reveal");
+  hearts(12);
+}
+let candleBlown = false;
+function blowCandle() {
+  const flame = document.getElementById("flame");
+  const text = document.getElementById("cakeMessage");
+  if (!candleBlown) {
+    flame.textContent = "✨";
+    text.textContent = "Wish made! May your year be full of beautiful things. 💗";
+    candleBlown = true;
+    hearts(25);
+  } else {
+    flame.textContent = "🕯️";
+    text.textContent = "Your candle is glowing again. Make another wish! 🌸";
+    candleBlown = false;
+  }
+}
+function showFinal() {
+  document.getElementById("finalWish").classList.remove("hidden");
+  hearts(30);
+}
+function hearts(count) {
+  const symbols = ["♡","💗","💕","✧","🌸"];
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+    heart.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (16+Math.random()*20) + "px";
+    heart.style.animationDelay = (Math.random()*1.5) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+}
+</script>
+</body>
+</html>
